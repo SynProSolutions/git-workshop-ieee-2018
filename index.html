@@ -133,8 +133,8 @@ IEEE Student Branch Graz / 24.01.2018
 # Agenda
 
 1. Installation
-2. Grundlagen zum Workflow
-3. Erste Kommandos
+2. Erste Kommandos
+3. Grundlagen zum Workflow
 4. TODO
 
 ???
@@ -250,7 +250,24 @@ In `~/.zshrc` bzw `~/.bash_profile` permanent machen.
 
 ---
 
+# Linux
+
+Je nach Distribution:
+
+```bash
+% sudo apt install git           # Debian/Ubuntu/Mint/...
+% sudo pacman -S git             # Archlinux
+% sudo dnf install git           # neuere RHEL/CentOS/Fedora
+% sudo yum install git           # ältere RHEL/CentOS/Fedora
+% sudo emerge --ask dev-vcs/git  # Gentoo
+…
+```
+
+---
+
 # Git Basis-Konfiguration
+
+Benutzername und Mailadresse setzen:
 
 ```bash
 % git config --global user.name "Susanne Musterfrau"
@@ -259,7 +276,96 @@ In `~/.zshrc` bzw `~/.bash_profile` permanent machen.
 
 ---
 
-# TODOs
+# Side-Note: falls nur SSH verfügbar ist
+
+* Typischerweise https (firewall-friendly, <a href="https://help.github.com/articles/caching-your-github-password-in-git/">credential.helper</a>) vs. ssh URLs (häufig bereits verfügbare Infrastruktur)
+* Unterscheidung private vs. public Key
+
+**Achtung**: Niemals private Key (`~/.ssh/id_rsa`) hergeben, immer nur den public Key (`~/.ssh/id_rsa.pub`)
+
+SSH-Key erstellen:
+
+```bash
+% ssh-keygen
+```
+
+*Empfehlung*: Passwort für SSH-Key vergeben!
+
+Shell-Integration (Linux + Windows):
+
+```bash
+% cat ~/.bash_profile # bzw. ~/.zlogin
+eval $(ssh-agent)
+ssh-add "$HOME/.ssh/id_rsa"
+```
+
+*Anmerkung*: typischerweise nur für Windows + Linux relevant,
+Mac hat Keychain-Integration
+
+---
+
+# Bevor es jetzt wirklich lostgeht
+
+* Git ist *kein* Backup-Ersatz!
+* Bitte alle wichtigen Daten sichern
+
+---
+
+# Outline
+
+## Lokales Repository
+
+* Temporäres Verzeichnis anlegen und Repository init
+* Erste Kommandos (add, commit, status, diff, log)
+
+## Remote-Repository
+
+* Repository anlegen (playground-$username)
+* Repository clonen
+* Kommandos push/pull
+
+## Multiuser-Szenario/Advanced Szenarien(?)
+
+* Repository anlegen (playground-group##)
+* Repository clonen
+* 2 Leute arbeiten gemeinsam (index.html + author1.html + author2.html)
+* Erklärung branches bzw. Konflikte bei merges lösen
+* git tag?
+
+---
+
+# `git commit`
+
+*Wichtig*: Aussagekräftige Commit-Messages verwenden
+
+---
+
+# Shell-Prompt
+
+Zum Beispiel <a href="https://grml.org/zsh/">grml-zshrc</a>:
+
+.center[![grml-zshrc](includes/grml-zsh-prompt.png)</a>]
+
+```bash
+% test -r ~/.zshrc.local || \
+  curl -L https://git.grml.org/f/grml-etc-core/etc/zsh/zshrc &gt; ~/.zshrc.local
+```
+
+oder <a href="https://github.com/powerline/powerline">powerline</a>
+bzw. <a href="https://github.com/bhilburn/powerlevel9k/">powerlevel9k</a>:
+
+```bash
+% . /usr/share/powerline/bindings/zsh/powerline.zsh
+
+$ . /usr/share/powerline/bindings/bash/powerline.sh
+```
+
+---
+
+# Resources
+
+* https://wiki.archlinux.org/index.php/Git
+* http://rogerdudler.github.io/git-guide/
 
 ---
 
