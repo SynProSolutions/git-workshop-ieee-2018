@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Git Workshop für Einsteiger / SynPro Solutions / IEEE Student Branch Graz / 24.01.2018</title>
+    <meta charset="utf-8">
+    <style>
+      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+      body {
+        font-family: 'Droid Serif';
+      }
+      h1, h2, h3 {
+        font-family: 'Yanone Kaffeesatz';
+        font-weight: 400;
+        margin-bottom: 0;
+      }
+      .remark-slide-content h1 { font-size: 3em; }
+      .remark-slide-content h2 { font-size: 2em; }
+      .remark-slide-content h3 { font-size: 1.6em; }
+      .footnote {
+        position: absolute;
+        bottom: 3em;
+      }
+      li p { line-height: 1.25em; }
+      .red { color: #fa0000; }
+      .large { font-size: 2em; }
+      a, a > code {
+        color: rgb(249, 38, 114);
+        text-decoration: none;
+      }
+      code {
+        background: #e7e8e2;
+        border-radius: 5px;
+      }
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+      .remark-code-line-highlighted     { background-color: #373832; }
+      .pull-left {
+        float: left;
+        width: 47%;
+      }
+      .pull-right {
+        float: right;
+        width: 47%;
+      }
+      .pull-right ~ p {
+        clear: both;
+      }
+      #slideshow .slide .content code {
+        font-size: 0.8em;
+      }
+      #slideshow .slide .content pre code {
+        font-size: 0.9em;
+        padding: 15px;
+      }
+      .inverse {
+        background: #272822;
+        color: #777872;
+        text-shadow: 0 0 20px #333;
+      }
+      .inverse h1, .inverse h2 {
+        color: #f3f3f3;
+        line-height: 0.8em;
+      }
+
+      /* Slide-specific styling */
+      #slide-inverse .footnote {
+        bottom: 12px;
+        left: 20px;
+      }
+      #slide-how .slides {
+        font-size: 0.9em;
+        position: absolute;
+        top:  151px;
+        right: 140px;
+      }
+      #slide-how .slides h3 {
+        margin-top: 0.2em;
+      }
+      #slide-how .slides .first, #slide-how .slides .second {
+        padding: 1px 20px;
+        height: 90px;
+        width: 120px;
+        -moz-box-shadow: 0 0 10px #777;
+        -webkit-box-shadow: 0 0 10px #777;
+        box-shadow: 0 0 10px #777;
+      }
+      #slide-how .slides .first {
+        background: #fff;
+        position: absolute;
+        top: 20%;
+        left: 20%;
+        z-index: 1;
+      }
+      #slide-how .slides .second {
+        position: relative;
+        background: #fff;
+        z-index: 0;
+      }
+
+      /* Two-column layout */
+      .left-column {
+        color: #777;
+        width: 20%;
+        height: 92%;
+        float: left;
+      }
+        .left-column h2:last-of-type, .left-column h3:last-child {
+          color: #000;
+        }
+      .right-column {
+        width: 75%;
+        float: right;
+        padding-top: 1em;
+      }
+
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+
+class: center, middle
+
+# Git Workshop für Einsteiger
+
+.center[![SynPro Solutions](http://synpro.solutions/images/synpro.png)]
+
+IEEE Student Branch Graz / 24.01.2018
+
+---
+
+# Agenda
+
+1. Installation
+2. Grundlagen zum Workflow
+3. Erste Kommandos
+4. TODO
+
+???
+
+clone, init, commit, push, pull, log, branch, checkout,...
+
+Der Anfänger-Teil wird sich rund um Installation, grundsätzlicher
+Workflow und Basis-Kommandos (clone, init, commit, push, pull, log,
+branch, checkout,...) drehen. Ziel wird es sein, dass man in
+Gruppenprojekten (z.B. für Laborprotokolle) gemeinsam mit Git
+arbeiten kann.
+
+---
+
+# Installation
+
+* Mac OS
+* Windows
+* Linux
+
+---
+
+# Mac OS
+
+Vielleicht ist Git bereits installiert?
+
+```bash
+% git version
+
+bzw.
+
+% mdfind -name git | grep bin
+```
+
+Schon installiert? Version *sollte* halbwegs aktuell sein.
+
+Anmerkung: wir sind aktuell (Stand 2018-01-10) bei Git v2.15.1.
+
+Optionen zur Installation:
+
+1. X-Code
+2. Natives Paket
+3. Brew
+
+---
+
+# Mac OS #1: Git via X-Code
+
+Wer X-Code hat bekommt git mitgeliefert (`/usr/bin/git`):
+
+```bash
+% git version
+git version 2.8.4 (Apple Git-73)
+```
+
+bzw.:
+
+```bash
+/Applications/Xcode.app/Contents/Developer/usr/bin/git --version
+git version 2.8.4 (Apple Git-73)
+
+/Library/Developer/CommandLineTools/usr/bin/git --version
+git version 2.10.1 (Apple Git-78)
+```
+
+- Vorteil: vielleicht eh schon da ☻
+- Nachteil: häufig veraltete Version, benötigt X-Code
+
+---
+
+# Mac OS #2: Git for Mac Installer
+
+`dmg` von https://git-scm.com/download/mac runterladen.
+
+Hinweis: unter 'Security &amp; Privay' -&gt; 'Allow apps downloaded from' Installation erlauben
+
+- Vorteil: benötigt sonst nichts spezielles
+- Nachteil: keine Paketmanager-Integration (z.B. für Updates)
+
+---
+
+# Mac OS #3: Git via Brew
+
+```bash
+% brew install git
+```
+
+Brew? Siehe https://docs.brew.sh/Installation.html:
+
+```bash
+% /usr/bin/ruby -e \
+ "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+```
+
+- Vorteil: Paketmanager-Integration
+- Nachteil: benötigt xcode bzw. xcode command line tools (`xcode-select --install`)
+
+---
+
+# Mac OS:
+
+Falls Git installiert, `git` Befehl aber noch nicht verfügbar ist:
+
+```bash
+% export PATH="$PATH:/usr/local/bin/:/usr/local/git/bin"
+```
+
+In `~/.zshrc` bzw `~/.bash_profile` permanent machen.
+
+---
+
+# Windows: TODO
+
+---
+
+# Git Basis-Konfiguration
+
+```bash
+% git config --global user.name "Susanne Musterfrau"
+% git config --global user.email "nospam@tugraz.at"
+```
+
+---
+
+# TODOs
+
+---
+
+# Danke für die Aufmerksamkeit
+
+Und wie gibt's die Folien? Natürlich mit Git:
+
+```bash
+% git clone https://gitlab.grml.info/synpro/git-workshop-ieee-2018.git
+```
+
+.center[<a href="https://synpro.solutions/">![SynPro Solutions](http://synpro.solutions/images/synpro.png)</a>]
+    </textarea>
+    <script src="includes/remark.js">
+    </script>
+    <script>
+      var slideshow = remark.create({
+          highlightStyle: 'monokai',
+          highlightLanguage: 'remark',
+          highlightLines: true
+        }) ;
+    </script>
+  </body>
+</html>
