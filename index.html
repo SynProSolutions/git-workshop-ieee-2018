@@ -171,6 +171,7 @@ class: center, middle
 
 # Agenda für Workshop
 
+<img alt="IEEE Student Branch Graz" src="includes/ieee_graz.png" style="float:right" />
 IEEE Student Branch Graz / 24.01.2018
 
 1. Vorstellungsrunde
@@ -188,10 +189,15 @@ TODO: Bild von IEEE Student Branch (Graz) + SynPro Solutions schön unterbringen
 
 .center[<a href="https://synpro.solutions/">![SynPro Solutions](includes/synpro.png)</a>]
 
-* Darshaka Pathirana: Git-User seit 2009
-* Michael Prokop: Git-User seit 2006
+<table>
+<tr><td><strong>Darshaka Pathirana:</strong></td><td>Git-User seit 2009</td></tr>
+<tr><td><strong>Michael Prokop:</strong</td><td>Git-User seit 2006</td></tr>
+</table>
 
 Wir bieten Systemadministration und -integration für KMUs (Schwerpunkt Linux) an.
+Heterogene Umgebungen gehören aber zu unserem Alltag.
+
+Wir arbeiten mit Software. Software gehört versioniert.
 Git verwenden wir täglich und ist für uns unverzichtbar.
 
 ???
@@ -207,7 +213,15 @@ TODO: schöner machen :)
 * Warum willst du Git verwenden?
 * Was erwartest du dir vom Workshop?
 
-.center[<a href="http://geek-and-poke.com/?offset=1352247302000">![*](includes/geek-and-poke_version-control.png)</a>]
+---
+
+# Einfach erklärt
+
+<div style="text-align:center;position:absolute;width:80%;height:100%">
+  <a href="http://geek-and-poke.com/?offset=1352247302000">
+    <img src="includes/geek-and-poke_version-control.png" alt="Geek &amp; Poke Comic: Version control" style="height:80%" />
+  </a>
+</div>
 
 ???
 
@@ -249,7 +263,7 @@ Optionen zur Installation:
 
 # Mac OS #1: Git via X-Code
 
-Wer X-Code hat bekommt git mitgeliefert (`/usr/bin/git`):
+Wer X-Code hat, bekommt git mitgeliefert (`/usr/bin/git`):
 
 ```bash
 % git version
@@ -275,10 +289,10 @@ git version 2.10.1 (Apple Git-78)
 
 `dmg` von https://git-scm.com/download/mac runterladen.
 
-Hinweis: unter 'Security &amp; Privay' -&gt; 'Allow apps downloaded from' Installation erlauben
+Hinweis: unter 'Security &amp; Privacy' → 'Allow apps downloaded from' Installation erlauben
 
-- Vorteil: benötigt sonst nichts spezielles
-- Nachteil: keine Paketmanager-Integration (z.B. für Updates)
+- **Vorteil:** benötigt sonst nichts Spezielles
+- **Nachteil:** keine Paketmanager-Integration (z.B. für Updates)
 
 ---
 
@@ -295,8 +309,8 @@ Brew? Siehe https://docs.brew.sh/Installation.html:
  "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
 
-- Vorteil: Paketmanager-Integration
-- Nachteil: benötigt xcode bzw. xcode command line tools (`xcode-select --install`)
+- **Vorteil:** Paketmanager-Integration
+- **Nachteil:** benötigt xcode bzw. xcode command line tools (`xcode-select --install`)
 
 ---
 
@@ -348,7 +362,7 @@ Je nach Distribution:
 ## Multiuser-Szenario/Advanced Szenarien(?)
 
 * Repository anlegen (playground-group##) + clonen
-* Mehrere Leute arbeiten gemeinsam (index.html + author1.html + author2.html)
+* Mehrere Leute arbeiten gemeinsam (`index.html` + `author1.html` + `author2.html`)
 
 ???
 
@@ -429,7 +443,7 @@ Mac hat Keychain-Integration
 % $EDITOR README.md
 ```
 
-```
+```markdown
 My Project
 ==========
 
@@ -439,37 +453,31 @@ when an unkonwn(sic!) printer took a galley of type and scrambled it to make
 a type specimen book.
 ```
 
-???
-
-TODO: Formatierung vom Text schaut meh aus
-
 ---
 
 # Lokales Repository anlegen
 
-```bash
-% git init
+<pre><code class="plain hljs remark-code"><span class="hljs-string">% git init</span>
 Initialized empty Git repository in /home/synpro/my-project/.git/
-% git status
+<span class="hljs-string">% git status</span>
 On branch master
 
 Initial commit
 
 Untracked files:
-  (use "git add <file>..." to include in what will be committed)
+  (use "git add &lt;file&gt;..." to include in what will be committed)
 
         README.md
 
 nothing added to commit but untracked files present (use "git add" to track)
-```
+</code></pre>
 
 ---
 
 # Datei dem Repository hinzufügen 1/3
 
-```bash
-% git add README.md
-% git status
+<pre><code class="plain hljs remark-code"><span class="hljs-string">% git add README.md</span>
+<span class="hljs-string">% git status</span>
 On branch master
 
 Initial commit
@@ -478,8 +486,8 @@ Changes to be committed:
   (use "git rm --cached <file>..." to unstage)
 
         new file:   README.md
-%
-```
+<span class="hljs-string">%</span>
+</code></pre>
 
 ---
 
@@ -514,45 +522,41 @@ index 0000000..adcfe46
 
 # Datei dem Repository hinzufügen 3/3
 
-```bash
-% git commit -v README.md
+<pre><code class="plain hljs remark-code"><span class="hljs-string">% git commit -v README.md</span>
 [master (root-commit) 79d5760] Add initial README.md
  1 file changed, 7 insertions(+)
  create mode 100644 README.md
-% git status
+<span class="hljs-string">% git status</span>
 On branch master
 nothing to commit, working tree clean
-```
+</code></pre>
 
 ---
 
 # Historie - was wurde bisher gemacht?
 
-```bash
-% git log
+<pre><code class="plain hljs remark-code"><span class="hljs-string">% git log</span>
 commit 79d5760c1051cbe450ce49b6614a18cba2a82bb1
-Author: Michael Prokop <michael.prokop@synpro-solutions.com>
+Author: Michael Prokop &lt;michael.prokop@synpro-solutions.com&gt;
 Date:   Fri Jan 12 11:05:58 2018 +0100
 
     Add initial README.md
-```
+</code></pre>
 
 *Tipp*: Ausgabe-Format lässt sich anpassen, z.B.:
 
-```bash
-% git log --oneline
+<pre><code class="plain hljs remark-code hljs-string">% git log --oneline
 % git log --stat
 % git log --pretty="format:%h %s (%cr)"
-```
+</code></pre>
 
 ---
 
 # Wie schaut der letzte Commit aus?
 
-```bash
-% git show
+<pre><code class="plain hljs remark-code"><span class="hljs-string">% git show</span>
 commit 79d5760c1051cbe450ce49b6614a18cba2a82bb1
-Author: Michael Prokop <michael.prokop@synpro-solutions.com>
+Author: Michael Prokop &lt;michael.prokop@synpro-solutions.com&gt;
 Date:   Fri Jan 12 11:05:58 2018 +0100
 
     Add initial README.md
@@ -570,49 +574,43 @@ index 0000000..adcfe46
 +Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
 +when an unkonwn(sic!) printer took a galley of type and scrambled it to make
 +a type specimen book.
-```
+</code></pre>
 
 ---
 
 # Weiterarbeiten, Typo fixen!
 
-```bash
-% $EDITOR README.md
-% git diff
-diff --git a/README.md b/README.md
+<pre><code class="plain hljs remark-code"><span class="hljs-string">% $EDITOR README.md</span>
+<span class="hljs-string">% git diff</span>
+<strong>diff --git a/README.md b/README.md
 index adcfe46..45f0920 100644
 --- a/README.md
-+++ b/README.md
-@@ -3,5 +3,5 @@ My Project
++++ b/README.md</strong>
+<span style="color:#00e5ee">@@ -3,5 +3,5 @@</span> My Project
 
  Lorem Ipsum is simply dummy text of the printing and typesetting industry.
  Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
--when an unkonwn(sic!) printer took a galley of type and scrambled it to make
-+when an unknown printer took a galley of type and scrambled it to make
+<span style="color:red">-when an unkonwn(sic!) printer took a galley of type and scrambled it to make</span>
+<span style="color:#00AA00">+when an unknown printer took a galley of type and scrambled it to make</span>
  a type specimen book.
-```
-
-???
-
-TODO: diff wird nicht so angezeigt wie es in der Shell aussieht
+</code></pre>
 
 ---
 
 # Besseres diff (manchmal zumindest :))!
 
-```
-% git diff --word-diff
-diff --git a/README.md b/README.md
+<pre><code class="plain hljs remark-code"><span class="hljs-string">% git diff --word-diff</span>
+<strong>diff --git a/README.md b/README.md
 index adcfe46..45f0920 100644
 --- a/README.md
-+++ b/README.md
-@@ -3,5 +3,5 @@ My Project
++++ b/README.md</strong>
+<span style="color:#00e5ee">@@ -3,5 +3,5 @@</span> My Project
 
 Lorem Ipsum is simply dummy text of the printing and typesetting industry.
 Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-when an [-unkonwn(sic!)-]{+unknown+} printer took a galley of type and scrambled it to make
+when an <span style="color:red">[-unkonwn(sic!)-]</span><span style="color:#0A0">{+unknown+}</span> printer took a galley of type and scrambled it to make
 a type specimen book.
-```
+</code></pre>
 
 ---
 
