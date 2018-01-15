@@ -237,7 +237,7 @@ TODO: Bild anpassen :)
 
 ---
 
-# Mac OS
+## Mac OS
 
 Vielleicht ist Git bereits installiert?
 
@@ -261,7 +261,7 @@ Optionen zur Installation:
 
 ---
 
-# Mac OS #1: Git via X-Code
+## Mac OS #1: Git via X-Code
 
 Wer X-Code hat, bekommt git mitgeliefert (`/usr/bin/git`):
 
@@ -285,7 +285,7 @@ git version 2.10.1 (Apple Git-78)
 
 ---
 
-# Mac OS #2: Git for Mac Installer
+## Mac OS #2: Git for Mac Installer
 
 `dmg` von https://git-scm.com/download/mac runterladen.
 
@@ -296,7 +296,7 @@ Hinweis: unter 'Security &amp; Privacy' → 'Allow apps downloaded from' Install
 
 ---
 
-# Mac OS #3: Git via Brew
+## Mac OS #3: Git via Brew
 
 ```bash
 % brew install git
@@ -314,7 +314,7 @@ Brew? Siehe https://docs.brew.sh/Installation.html:
 
 ---
 
-# Mac OS:
+## Mac OS:
 
 Falls Git installiert, `git` Befehl aber noch nicht verfügbar ist:
 
@@ -326,11 +326,37 @@ In `~/.zshrc` bzw `~/.bash_profile` permanent machen.
 
 ---
 
-# Windows: TODO
+## Windows #1: Git for Windows Installer
+
+Installer-`exe` von https://git-scm.com/downloads/win runterladen.
+
+Standard-Komponenten und Einstellungen behalten und installieren.
+
+*Der Standard-Editor ist `vim`, man kann auch noch zwischen `Nano` und `Notepad++` wählen.*
+
+- **Vorteil:** man kann die Installation anpassen
+- **Nachteile:** keine Paktemanager-Integration (via chocolatey), viele Fragen (die man vielleicht nicht beantworten möchte / kann)
 
 ---
 
-# Linux
+## Windows #2: Git via Chocolatey
+
+```bash
+choco install -y git.install
+```
+
+Chocolatey?
+
+> Chocolatey is a package manager for Windows (like apt-get or yum but for Windows).
+
+Siehe: https://chocolatey.org/install
+
+- **Vorteil:** Paketmanager-Intergration. Einfaches Upgrade durch `choco upgrade -y git.install`
+- **Nachteile:** Anpassen der Installation nicht möglich (alles ist nachträglich konfigurierbar)
+
+---
+
+## Linux
 
 Je nach Distribution:
 
