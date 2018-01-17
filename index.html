@@ -179,10 +179,6 @@ IEEE Student Branch Graz / 24.01.2018
 3. Arbeiten mit Git
 4. Zeit für Fragen
 
-???
-
-TODO: Bild von IEEE Student Branch (Graz) + SynPro Solutions schön unterbringen?
-
 ---
 
 # Wer sind wir?
@@ -200,32 +196,13 @@ Heterogene Umgebungen gehören aber zu unserem Alltag.
 Wir arbeiten mit Software. Software gehört versioniert.
 Git verwenden wir täglich und ist für uns unverzichtbar.
 
-???
-
-TODO: schöner machen :)
-
 ---
 
 # Vorstellungsrunde
 
 * Wer hat schon einmal mit Versionskontrolle zu tun gehabt?
-* Wissensstand zu Git
-* Warum willst du Git verwenden?
-* Was erwartest du dir vom Workshop?
-
----
-
-# Einfach erklärt
-
-<div style="text-align:center;position:absolute;width:80%;height:100%">
-  <a href="http://geek-and-poke.com/?offset=1352247302000">
-    <img src="includes/geek-and-poke_version-control.png" alt="Geek &amp; Poke Comic: Version control" style="height:80%" />
-  </a>
-</div>
-
-???
-
-TODO: Bild anpassen :)
+* Was weißt du zu Git bzw. was stellst du dir darunter vor?
+* Warum willst du Git verwenden bzw. was erwartest du dir vom Workshop?
 
 ---
 
@@ -342,7 +319,7 @@ Standard-Komponenten und Einstellungen behalten und installieren.
 ## Windows #2: Git via Chocolatey
 
 ```bash
-choco install -y git.install
+> choco install -y git.install
 ```
 
 Chocolatey?
@@ -352,7 +329,7 @@ Chocolatey?
 Siehe: https://chocolatey.org/install
 
 - **Vorteil:** Paketmanager-Intergration. Einfaches Upgrade durch `choco upgrade -y git.install`
-- **Nachteile:** Anpassen der Installation nicht möglich (alles ist nachträglich konfigurierbar)
+- **Nachteile:** Anpassen der Installation nicht möglich (aber alles ist nachträglich konfigurierbar)
 
 ---
 
@@ -378,24 +355,20 @@ Je nach Distribution:
 ## Lokales Git-Repository
 
 * Test-Projekt + Repository anlegen
-* Erste Git-Kommandos (init, status, add, commit, log, show, diff)
+* Erste Git-Kommandos (init, status, add, commit, log, show, diff, blame)
 
 ## Remote-Repository
 
-* Repository anlegen (playground-$username) + clonen
-* Kommandos push/pull
+* Advanced Git-Kommandos (clone, push, pull,...)
+---
 
-## Multiuser-Szenario/Advanced Szenarien(?)
+# Bevor es jetzt wirklich losgeht
 
-* Repository anlegen (playground-group##) + clonen
-* Mehrere Leute arbeiten gemeinsam (`index.html` + `author1.html` + `author2.html`)
+* Git ist (eigentlich¹) *kein* Backup-Ersatz!
+* Bitte alle wichtigen Daten sichern
+* Wenn du Probleme hast, etwas zu schnell war oder unklar ist: bitte gleich melden! Das soll kein Frontalvortrag werden!
 
-???
-
-* Working-Tree vs. Index/Staging vs. Repository
-* Vokabeln
-* Erklärung branches bzw. Konflikte bei merges lösen
-* blame, .gitignore, git tag?
+¹ Das wird jetzt zu ausufernd :)
 
 ---
 
@@ -425,60 +398,25 @@ Siehe auch "$HOME/.gitconfig" und (in einem Projekt) ".git/config"
 
 ---
 
-# Side-Note: falls nur SSH verfügbar ist
-
-* Typischerweise https (firewall-friendly, <a href="https://help.github.com/articles/caching-your-github-password-in-git/">credential.helper</a>) vs. ssh URLs (häufig bereits verfügbare Infrastruktur)
-* Unterscheidung private vs. public Key
-
-**Achtung**: Niemals private Key (`~/.ssh/id_rsa`) hergeben, immer nur den public Key (`~/.ssh/id_rsa.pub`)
-
-SSH-Key erstellen:
-
-```bash
-% ssh-keygen
-```
-
-*Empfehlung*: Passwort für SSH-Key vergeben!
-
-Shell-Integration (Linux + Windows):
-
-```bash
-% cat ~/.bash_profile # bzw. ~/.zlogin
-eval $(ssh-agent)
-ssh-add "$HOME/.ssh/id_rsa"
-```
-
-*Anmerkung*: typischerweise nur für Windows + Linux relevant,
-Mac hat Keychain-Integration
-
----
-
-# Bevor es jetzt wirklich losgeht
-
-* Git ist (eigentlich¹) *kein* Backup-Ersatz!
-* Bitte alle wichtigen Daten sichern
-
-¹ Das wird jetzt zu ausufernd :)
-
----
-
 # Test-Projekt erstellen
 
 ```bash
 % mkdir my-project
+% cd my-project
 % $EDITOR README.md
 ```
 
 ```markdown
-My Project
-==========
-
-Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-when an unkonwn(sic!) printer took a galley of type and scrambled it to make
-a type specimen book.
+1  My Project
+2  ==========
+3
+4  Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+5  Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+6  when an unkonwn(sic!) printer took a galley of type and scrambled it to make
+7  a type specimen book.
 ```
 
+Quelle: https://lipsum.com/ (plus Typo in Zeile 6 :))
 ---
 
 # Lokales Repository anlegen
@@ -549,7 +487,7 @@ index 0000000..adcfe46
 # Datei dem Repository hinzufügen 3/3
 
 <pre><code class="plain hljs remark-code"><span class="hljs-string">% git commit -v README.md</span>
-[master (root-commit) 79d5760] Add initial README.md
+[master (root-commit) 63456c5] Add initial README.md
  1 file changed, 7 insertions(+)
  create mode 100644 README.md
 <span class="hljs-string">% git status</span>
@@ -557,14 +495,15 @@ On branch master
 nothing to commit, working tree clean
 </code></pre>
 
+*Anmerkung*: erst mit `git commit` ist die Datei dem (lokalen) Repository hinzugefügt!
 ---
 
 # Historie - was wurde bisher gemacht?
 
 <pre><code class="plain hljs remark-code"><span class="hljs-string">% git log</span>
-commit 79d5760c1051cbe450ce49b6614a18cba2a82bb1
-Author: Michael Prokop &lt;michael.prokop@synpro-solutions.com&gt;
-Date:   Fri Jan 12 11:05:58 2018 +0100
+commit 2cd795a5a670017ed75f53af086f2f8387625477
+Author: Michael Prokop <michael.prokop@synpro.solutions>
+Date:   Wed Jan 17 19:07:01 2018 +0100
 
     Add initial README.md
 </code></pre>
@@ -576,14 +515,17 @@ Date:   Fri Jan 12 11:05:58 2018 +0100
 % git log --pretty="format:%h %s (%cr)"
 </code></pre>
 
+???
+
+TODO: die Mailadr. wird nicht angezeigt
 ---
 
 # Wie schaut der letzte Commit aus?
 
 <pre><code class="plain hljs remark-code"><span class="hljs-string">% git show</span>
-commit 79d5760c1051cbe450ce49b6614a18cba2a82bb1
-Author: Michael Prokop &lt;michael.prokop@synpro-solutions.com&gt;
-Date:   Fri Jan 12 11:05:58 2018 +0100
+commit 2cd795a5a670017ed75f53af086f2f8387625477
+Author: Michael Prokop <michael.prokop@synpro.solutions>
+Date:   Wed Jan 17 19:07:01 2018 +0100
 
     Add initial README.md
 
@@ -602,6 +544,9 @@ index 0000000..adcfe46
 +a type specimen book.
 </code></pre>
 
+???
+
+TODO: die Mailadr. wird nicht angezeigt
 ---
 
 # Weiterarbeiten, Typo fixen!
@@ -621,6 +566,8 @@ index adcfe46..45f0920 100644
  a type specimen book.
 </code></pre>
 
+*Anmerkung*: vor einem `commit` immer das `diff` anschauen
+
 ---
 
 # Besseres diff (manchmal zumindest :))!
@@ -637,6 +584,157 @@ Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
 when an <span style="color:red">[-unkonwn(sic!)-]</span><span style="color:#0A0">{+unknown+}</span> printer took a galley of type and scrambled it to make
 a type specimen book.
 </code></pre>
+
+---
+
+# Wer hat wann was gemacht?
+
+<pre><code class="plain hljs remark-code"><span class="hljs-string">% git blame README.md</span>
+^2cd795a (Michael Prokop    2018-01-17 19:07:01 +0100 1) My Project
+^2cd795a (Michael Prokop    2018-01-17 19:07:01 +0100 2) ==========
+^2cd795a (Michael Prokop    2018-01-17 19:07:01 +0100 3)
+^2cd795a (Michael Prokop    2018-01-17 19:07:01 +0100 4) Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+^2cd795a (Michael Prokop    2018-01-17 19:07:01 +0100 5) Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+00000000 (Not Committed Yet 2018-01-17 19:10:42 +0100 6) when an unknown printer took a galley of type and scrambled it to make
+^2cd795a (Michael Prokop    2018-01-17 19:07:01 +0100 7) a type specimen book.
+</code></pre>
+
+---
+# Remote Repository
+
+* lässt sich für das Arbeiten an mehreren Standorten nutzen (Zuhause, Uni, Firma,...)
+* damit können auch mehrere Leute gemeinsam an einem Projekt arbeiten (kein hin- und hermailen von Dateien mehr!)
+
+---
+
+<div style="text-align:center;position:absolute;width:80%;height:100%">
+  <a href="http://geek-and-poke.com/?offset=1352247302000">
+    <img src="includes/geek-and-poke_version-control.png" alt="Geek &amp; Poke Comic: Version control" style="height:80%" />
+  </a>
+</div>
+
+Quelle: http://geek-and-poke.com/?offset=1352247302000
+
+???
+
+TODO - Formatierung der Quelle gehört unter das Bild
+---
+
+## Remote Git Repositories / Git Hosting
+
+Hosted Solutions:
+
+* https://github.com/
+* https://gitlab.com/
+* https://bitbucket.org/
+* https://git.tugraz.at/
+* ...
+
+Selbst hosten:
+
+* http://gitolite.com/
+* https://gitlab.com/
+* https://gogs.io/ bzw. https://gitea.io/
+* https://www.gerritcodereview.com/
+* https://kallithea-scm.org/
+* http://gitblit.com/
+* ...
+
+---
+
+## Jeder holt sich jetzt einen Git Hosting Account
+
+* https://github.com/join
+* https://git.tugraz.at/
+* ...
+
+---
+
+## Praxisübungen
+
+* Repository "forken" bzw. neu anlegen, z.B.:
+  * https://github.com/SynProSolutions/lorem-ipsum
+* `git clone`
+* `git pull`
+* `git push`
+
+---
+
+## Git Remote Workflow
+
+<div style="text-align:center;position:absolute;width:80%;height:90%">
+  <a href="https://www.git-tower.com/learn/git/ebook/en/command-line/remote-repositories/introduction/">
+    <img src="includes/basic-remote-workflow.png" alt="git remote workflow" style="height:80%" />
+  </a>
+</div>
+
+<small>Quelle: <a href="https://www.git-tower.com/learn/content/01-git/01-ebook/en/01-command-line/04-remote-repositories/01-introduction/basic-remote-workflow.png">git-tower.com</a></small>
+
+???
+
+TODO - Formatierung der Quelle gehört unter das Bild
+---
+
+# Arbeiten mit LaTeX
+
+* Datei `.gitignore` um Dateien zu ignorieren
+* Beispielprojekt (siehe auch https://latex.tugraz.at/vorlagen/allgemein):
+  * https://github.com/novoid/LaTeX-KOMA-template
+* Entweder "forken":
+
+```bash
+% git clone https://github.com/$DEIN_USERNAME/LaTeX-KOMA-template
+% cd LaTeX-KOMA-template
+% make
+```
+
+* ... oder nur clonen:
+
+```bash
+% git clone https://github.com/novoid/LaTeX-KOMA-template
+% cd LaTeX-KOMA-template
+% make
+```
+
+???
+
+TODO: warum wird "clone" hier mit "bash" syntax gehighlighted? Nur Frage beantworten, keine Änderung notwendig :)
+
+---
+# Advanced Topics
+
+* `branch`
+* `merge`
+* `tag`
+* ...
+
+---
+
+# Side-Note: falls nur SSH verfügbar ist
+
+* Typischerweise https (firewall-friendly, <a href="https://help.github.com/articles/caching-your-github-password-in-git/">credential.helper</a>) vs. ssh URLs (häufig bereits verfügbare Infrastruktur)
+* Unterscheidung private vs. public Key
+
+**Achtung**: Niemals private Key (`~/.ssh/id_rsa`) hergeben, immer nur den public Key (`~/.ssh/id_rsa.pub`)
+
+SSH-Key erstellen:
+
+```bash
+% ssh-keygen
+```
+
+*Empfehlung*: Passwort für SSH-Key vergeben!
+
+Shell-Integration (Linux + Windows):
+
+```bash
+% cat ~/.bash_profile # bzw. ~/.zlogin
+eval $(ssh-agent)
+ssh-add "$HOME/.ssh/id_rsa"
+```
+
+*Anmerkung*: typischerweise nur für Windows + Linux relevant,
+Mac hat Keychain-Integration
 
 ---
 
@@ -671,6 +769,7 @@ $ . /usr/share/powerline/bindings/bash/powerline.sh
 * Flight rules for Git: https://github.com/k88hudson/git-flight-rules
 * Git Cheat Sheet: https://services.github.com/on-demand/downloads/github-git-cheat-sheet.pdf
 * Dokumentation von Archlinux: https://wiki.archlinux.org/index.php/Git
+* gittutorial man page: https://www.kernel.org/pub/software/scm/git/docs/gittutorial.html
 
 ## Git-Workflow
 
