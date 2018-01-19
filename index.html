@@ -502,7 +502,7 @@ nothing to commit, working tree clean
 
 <pre><code class="plain hljs remark-code"><span class="hljs-string">% git log</span>
 commit 2cd795a5a670017ed75f53af086f2f8387625477
-Author: Michael Prokop <michael.prokop@synpro.solutions>
+Author: Michael Prokop &lt;michael.prokop@synpro.solutions&gt;
 Date:   Wed Jan 17 19:07:01 2018 +0100
 
     Add initial README.md
@@ -515,16 +515,13 @@ Date:   Wed Jan 17 19:07:01 2018 +0100
 % git log --pretty="format:%h %s (%cr)"
 </code></pre>
 
-???
-
-TODO: die Mailadr. wird nicht angezeigt
 ---
 
 # Wie schaut der letzte Commit aus?
 
 <pre><code class="plain hljs remark-code"><span class="hljs-string">% git show</span>
 commit 2cd795a5a670017ed75f53af086f2f8387625477
-Author: Michael Prokop <michael.prokop@synpro.solutions>
+Author: Michael Prokop &lt;michael.prokop@synpro.solutions&gt;
 Date:   Wed Jan 17 19:07:01 2018 +0100
 
     Add initial README.md
@@ -544,9 +541,6 @@ index 0000000..adcfe46
 +a type specimen book.
 </code></pre>
 
-???
-
-TODO: die Mailadr. wird nicht angezeigt
 ---
 
 # Weiterarbeiten, Typo fixen!
@@ -607,17 +601,15 @@ a type specimen book.
 
 ---
 
-<div style="text-align:center;position:absolute;width:80%;height:100%">
+<!-- <div style="text-align:center;position:absolute;width:80%;height:100%"> -->
+<div style="text-align:center">
   <a href="http://geek-and-poke.com/?offset=1352247302000">
-    <img src="includes/geek-and-poke_version-control.png" alt="Geek &amp; Poke Comic: Version control" style="height:80%" />
+    <img src="includes/geek-and-poke_version-control.png" alt="Geek &amp; Poke Comic: Version control" style="width: 500px" />
   </a>
 </div>
 
 Quelle: http://geek-and-poke.com/?offset=1352247302000
 
-???
-
-TODO - Formatierung der Quelle gehört unter das Bild
 ---
 
 ## Remote Git Repositories / Git Hosting
@@ -662,17 +654,14 @@ Selbst hosten:
 
 ## Git Remote Workflow
 
-<div style="text-align:center;position:absolute;width:80%;height:90%">
+<div style="text-align:center">
   <a href="https://www.git-tower.com/learn/git/ebook/en/command-line/remote-repositories/introduction/">
-    <img src="includes/basic-remote-workflow.png" alt="git remote workflow" style="height:80%" />
+    <img src="includes/basic-remote-workflow.png" alt="git remote workflow" style="width:500px" />
   </a>
 </div>
 
 <small>Quelle: <a href="https://www.git-tower.com/learn/content/01-git/01-ebook/en/01-command-line/04-remote-repositories/01-introduction/basic-remote-workflow.png">git-tower.com</a></small>
 
-???
-
-TODO - Formatierung der Quelle gehört unter das Bild
 ---
 
 # Arbeiten mit LaTeX
@@ -699,6 +688,7 @@ TODO - Formatierung der Quelle gehört unter das Bild
 ???
 
 TODO: warum wird "clone" hier mit "bash" syntax gehighlighted? Nur Frage beantworten, keine Änderung notwendig :)
+ANSWER(Lukas): weil es so eingetragen ist :) sry, habe keine bessere Antwort. https://github.com/isagalaev/highlight.js/blob/master/src/languages/bash.js#L53
 
 ---
 # Advanced Topics
