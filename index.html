@@ -60,6 +60,7 @@
       .remark-slide-content h1 { font-size: 3em; }
       .remark-slide-content h2 { font-size: 2em; }
       .remark-slide-content h3 { font-size: 1.6em; }
+      .remark-slide-content > ul li, .remark-slide-content > ol li { margin: 1.4em 1em; }
       .footnote {
         position: absolute;
         bottom: 3em;
@@ -155,7 +156,7 @@
         float: right;
         padding-top: 1em;
       }
-
+      .remark-slide-content > .nospace-rows li { margin: auto 1.1rem; }
     </style>
   </head>
   <body>
@@ -287,7 +288,7 @@ Brew? Siehe https://docs.brew.sh/Installation.html:
 ```
 
 - **Vorteil:** Paketmanager-Integration
-- **Nachteil:** benötigt xcode bzw. xcode command line tools (`xcode-select --install`)
+- **Nachteil:** benötigt X-Code bzw. X-Code command line tools (`xcode-select --install`)
 
 ---
 
@@ -299,7 +300,7 @@ Falls Git installiert, `git` Befehl aber noch nicht verfügbar ist:
 % export PATH="$PATH:/usr/local/bin/:/usr/local/git/bin"
 ```
 
-In `~/.zshrc` bzw `~/.bash_profile` permanent machen.
+In `~/.zshrc` bzw `~/.bash_profile` hinzufügen, um es permanent zu machen.
 
 ---
 
@@ -312,7 +313,7 @@ Standard-Komponenten und Einstellungen behalten und installieren.
 *Der Standard-Editor ist `vim`, man kann auch noch zwischen `Nano` und `Notepad++` wählen.*
 
 - **Vorteil:** man kann die Installation anpassen
-- **Nachteile:** keine Paktemanager-Integration (via chocolatey), viele Fragen (die man vielleicht nicht beantworten möchte / kann)
+- **Nachteile:** keine Paketmanager-Integration (via chocolatey), viele Fragen (die man vielleicht nicht beantworten möchte / kann)
 
 ---
 
@@ -328,7 +329,7 @@ Chocolatey?
 
 Siehe: https://chocolatey.org/install
 
-- **Vorteil:** Paketmanager-Intergration. Einfaches Upgrade durch `choco upgrade -y git.install`
+- **Vorteil:** Paketmanager-Integration. Einfaches Upgrade durch `choco upgrade -y git.install`
 - **Nachteile:** Anpassen der Installation nicht möglich (aber alles ist nachträglich konfigurierbar)
 
 ---
@@ -394,7 +395,7 @@ Konfiguration anzeigen:
 % git config --list --global
 ```
 
-Siehe auch "$HOME/.gitconfig" und (in einem Projekt) ".git/config"
+Siehe auch `$HOME/.gitconfig` und (in einem Projekt) `.git/config`
 
 ---
 
@@ -597,7 +598,7 @@ a type specimen book.
 # Remote Repository
 
 * lässt sich für das Arbeiten an mehreren Standorten nutzen (Zuhause, Uni, Firma,...)
-* damit können auch mehrere Leute gemeinsam an einem Projekt arbeiten (kein hin- und hermailen von Dateien mehr!)
+* damit können auch mehrere Leute gemeinsam an einem Projekt arbeiten (kein Hin- und Hermailen von Dateien mehr!)
 
 ---
 
@@ -688,7 +689,7 @@ Selbst hosten:
 ???
 
 TODO: warum wird "clone" hier mit "bash" syntax gehighlighted? Nur Frage beantworten, keine Änderung notwendig :)
-ANSWER(Lukas): weil es so eingetragen ist :) sry, habe keine bessere Antwort. https://github.com/isagalaev/highlight.js/blob/master/src/languages/bash.js#L53
+ANSWER(Lukas): weil es so eingetragen ist :) sry, kann keine bessere Antwort geben. https://github.com/isagalaev/highlight.js/blob/master/src/languages/bash.js#L53
 
 ---
 # Advanced Topics
@@ -702,8 +703,10 @@ ANSWER(Lukas): weil es so eingetragen ist :) sry, habe keine bessere Antwort. ht
 
 # Side-Note: falls nur SSH verfügbar ist
 
-* Typischerweise https (firewall-friendly, <a href="https://help.github.com/articles/caching-your-github-password-in-git/">credential.helper</a>) vs. ssh URLs (häufig bereits verfügbare Infrastruktur)
-* Unterscheidung private vs. public Key
+<ul class="nospace-rows">
+<li>Typischerweise https (firewall-friendly, <a href="https://help.github.com/articles/caching-your-github-password-in-git/">credential.helper</a>) vs. ssh URLs (häufig bereits verfügbare Infrastruktur)</li>
+<li>Unterscheidung private vs. public Key</li>
+</ul>
 
 **Achtung**: Niemals private Key (`~/.ssh/id_rsa`) hergeben, immer nur den public Key (`~/.ssh/id_rsa.pub`)
 
@@ -754,17 +757,21 @@ $ . /usr/share/powerline/bindings/bash/powerline.sh
 
 ## Git
 
-* Freies deutsches (Online-)Buch zu Git: http://gitbu.ch/
-* Freies englisches (Online-)Buch zu Git: https://book.git-scm.com/book/
-* Flight rules for Git: https://github.com/k88hudson/git-flight-rules
-* Git Cheat Sheet: https://services.github.com/on-demand/downloads/github-git-cheat-sheet.pdf
-* Dokumentation von Archlinux: https://wiki.archlinux.org/index.php/Git
-* gittutorial man page: https://www.kernel.org/pub/software/scm/git/docs/gittutorial.html
+<ul class="nospace-rows">
+<li>Freies deutsches (Online-)Buch zu Git: <a href="http://gitbu.ch/">http://gitbu.ch/</a>
+<li>Freies englisches (Online-)Buch zu Git: <a href="https://book.git-scm.com/book/">https://book.git-scm.com/book/</a>
+<li>Flight rules for Git: <a href="https://github.com/k88hudson/git-flight-rules">https://github.com/k88hudson/git-flight-rules</a>
+<li>Git Cheat Sheet: <a href="https://services.github.com/on-demand/downloads/github-git-cheat-sheet.pdf">https://services.github.com/on-demand/downloads/github-git-cheat-sheet.pdf</a>
+<li>Dokumentation von Archlinux: <a href="https://wiki.archlinux.org/index.php/Git">https://wiki.archlinux.org/index.php/Git</a>
+<li>gittutorial man page: <a href="https://www.kernel.org/pub/software/scm/git/docs/gittutorial.html">https://www.kernel.org/pub/software/scm/git/docs/gittutorial.html</a>
+</ul>
 
 ## Git-Workflow
 
-* https://www.atlassian.com/git/tutorials/comparing-workflows
-* https://git-scm.com/book/en/v2/Distributed-Git-Distributed-Workflows
+<ul class="nospace-rows">
+<li><a href="https://www.atlassian.com/git/tutorials/comparing-workflows">https://www.atlassian.com/git/tutorials/comparing-workflows</a>
+<li><a href="https://git-scm.com/book/en/v2/Distributed-Git-Distributed-Workflows">https://git-scm.com/book/en/v2/Distributed-Git-Distributed-Workflows</a>
+</ul>
 
 ---
 
