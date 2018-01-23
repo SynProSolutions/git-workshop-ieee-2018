@@ -219,13 +219,13 @@ Git verwenden wir täglich und ist für uns unverzichtbar.
 
 Vielleicht ist Git bereits installiert?
 
-```bash
-% git version
+<pre><code class="plain hljs remark-code"><span class="hljs-string">% git version</span>
+</code></pre>
 
 bzw.
 
-% mdfind -name git | grep bin
-```
+<pre><code class="plain hljs remark-code"><span class="hljs-string">% mdfind -name git | grep bin</span>
+</code></pre>
 
 Schon installiert? Version *sollte* halbwegs aktuell sein.
 
@@ -243,20 +243,18 @@ Optionen zur Installation:
 
 Wer X-Code hat, bekommt git mitgeliefert (`/usr/bin/git`):
 
-```bash
-% git version
+<pre><code class="plain hljs remark-code"><span class="hljs-string">% git version</span>
 git version 2.8.4 (Apple Git-73)
-```
+</code></pre>
 
 bzw.:
 
-```bash
-/Applications/Xcode.app/Contents/Developer/usr/bin/git --version
+<pre><code class="plain hljs remark-code"><span class="hljs-string">% /Applications/Xcode.app/Contents/Developer/usr/bin/git --version</span>
 git version 2.8.4 (Apple Git-73)
 
-/Library/Developer/CommandLineTools/usr/bin/git --version
+<span class="hljs-string">% /Library/Developer/CommandLineTools/usr/bin/git --version</span>
 git version 2.10.1 (Apple Git-78)
-```
+</code></pre>
 
 - Vorteil: vielleicht eh schon da ☻
 - Nachteil: häufig veraltete Version, benötigt X-Code
@@ -276,16 +274,14 @@ Hinweis: unter 'Security &amp; Privacy' → 'Allow apps downloaded from' Install
 
 ## Mac OS #3: Git via Brew
 
-```bash
-% brew install git
-```
+<pre><code class="plain hljs remark-code"><span class="hljs-string">% brew install git</span>
+</code></pre>
 
 Brew? Siehe https://docs.brew.sh/Installation.html:
 
-```bash
-% /usr/bin/ruby -e \
- "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-```
+<pre><code class="plain hljs remark-code"><span class="hljs-string">% /usr/bin/ruby -e \</span>
+<span class="hljs-string"> "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"</span>
+</code></pre>
 
 - **Vorteil:** Paketmanager-Integration
 - **Nachteil:** benötigt X-Code bzw. X-Code command line tools (`xcode-select --install`)
@@ -296,9 +292,8 @@ Brew? Siehe https://docs.brew.sh/Installation.html:
 
 Falls Git installiert, `git` Befehl aber noch nicht verfügbar ist:
 
-```bash
-% export PATH="$PATH:/usr/local/bin/:/usr/local/git/bin"
-```
+<pre><code class="plain hljs remark-code"><span class="hljs-string">% export PATH="$PATH:/usr/local/bin/:/usr/local/git/bin"</span>
+</code></pre>
 
 In `~/.zshrc` bzw `~/.bash_profile` hinzufügen, um es permanent zu machen.
 
@@ -319,9 +314,8 @@ Standard-Komponenten und Einstellungen behalten und installieren.
 
 ## Windows #2: Git via Chocolatey
 
-```bash
-> choco install -y git.install
-```
+<pre><code class="plain hljs remark-code"><span class="hljs-string">&gt; choco install -y git.install</span>
+</code></pre>
 
 Chocolatey?
 
@@ -338,14 +332,13 @@ Siehe: https://chocolatey.org/install
 
 Je nach Distribution:
 
-```bash
-% sudo apt install git           # Debian/Ubuntu/Mint/...
-% sudo pacman -S git             # Archlinux
-% sudo dnf install git           # neuere RHEL/CentOS/Fedora
-% sudo yum install git           # ältere RHEL/CentOS/Fedora
-% sudo emerge --ask dev-vcs/git  # Gentoo
+<pre><code class="plain hljs remark-code"><span class="hljs-string">% sudo apt install git</span>           <span class="hljs-comment"># Debian/Ubuntu/Mint/…</span>
+<span class="hljs-string">% sudo pacman -S git</span>             <span class="hljs-comment"># Archlinux</span>
+<span class="hljs-string">% sudo dnf install git</span>           <span class="hljs-comment"># neuere RHEL/CentOS/Fedora</span>
+<span class="hljs-string">% sudo yum install git</span>           <span class="hljs-comment"># ältere RHEL/CentOS/Fedora</span>
+<span class="hljs-string">% sudo emerge --ask dev-vcs/git</span>  <span class="hljs-comment"># Gentoo</span>
 …
-```
+</code></pre>
 
 ---
 
@@ -377,23 +370,20 @@ Je nach Distribution:
 
 Benutzername und Mailadresse zentral setzen:
 
-```bash
-% git config --global user.name "Susanne Musterfrau"
-% git config --global user.email "nospam@tugraz.at"
-```
+<pre><code class="plain hljs remark-code"><span class="hljs-string">% git config --global user.name</span> <span class="hljs-keyword">"Susanne Musterfrau"</span>
+<span class="hljs-string">% git config --global user.email</span> <span class="hljs-keyword">"nospam@tugraz.at"</span>
+</code></pre>
 
 Alternativ nur für das aktuelle Projekt:
 
-```bash
-% git config user.email "myname@company.example.org"
-```
+<pre><code class="plain hljs remark-code"><span class="hljs-string">% git config user.email</span> <span class="hljs-keyword">"myname@company.example.org"</span>
+</code></pre>
 
 Konfiguration anzeigen:
 
-```bash
-% git config --list
-% git config --list --global
-```
+<pre><code class="plain hljs remark-code"><span class="hljs-string">% git config --list</span>
+<span class="hljs-string">% git config --list --global</span>
+</code></pre>
 
 Siehe auch `$HOME/.gitconfig` und (in einem Projekt) `.git/config`
 
@@ -401,11 +391,10 @@ Siehe auch `$HOME/.gitconfig` und (in einem Projekt) `.git/config`
 
 # Test-Projekt erstellen
 
-```bash
-% mkdir my-project
-% cd my-project
-% $EDITOR README.md
-```
+<pre><code class="plain hljs remark-code"><span class="hljs-string">% mkdir my-project</span>
+<span class="hljs-string">% cd my-project</span>
+<span class="hljs-string">% $EDITOR README.md</span>
+</code></pre>
 
 ```markdown
 1  My Project
@@ -597,8 +586,14 @@ a type specimen book.
 ---
 # Remote Repository
 
-* lässt sich für das Arbeiten an mehreren Standorten nutzen (Zuhause, Uni, Firma,...)
-* damit können auch mehrere Leute gemeinsam an einem Projekt arbeiten (kein Hin- und Hermailen von Dateien mehr!)
+* Arbeiten an mehreren Standorten
+ * Zuhause
+ * Uni
+ * Firma
+ * …
+* mehrere Leute arbeiten gemeinsam an einem Projekt <br/>
+ * Änderungen für alle sofort einsehbar
+ * kein Hin- und Hermailen von Dateien mehr!
 
 ---
 
@@ -672,19 +667,17 @@ Selbst hosten:
   * https://github.com/novoid/LaTeX-KOMA-template
 * Entweder "forken":
 
-```bash
-% git clone https://github.com/$DEIN_USERNAME/LaTeX-KOMA-template
-% cd LaTeX-KOMA-template
-% make
-```
+<pre><code class="plain hljs remark-code"><span class="hljs-string">% git clone https://github.com/$DEIN_USERNAME/LaTeX-KOMA-template</span>
+<span class="hljs-string">% cd LaTeX-KOMA-template</span>
+<span class="hljs-string">% make</span>
+</code></pre>
 
 * ... oder nur clonen:
 
-```bash
-% git clone https://github.com/novoid/LaTeX-KOMA-template
-% cd LaTeX-KOMA-template
-% make
-```
+<pre><code class="plain hljs remark-code"><span class="hljs-string">% git clone https://github.com/novoid/LaTeX-KOMA-template</span>
+<span class="hljs-string">% cd LaTeX-KOMA-template</span>
+<span class="hljs-string">% make</span>
+</code></pre>
 
 ???
 
@@ -712,19 +705,17 @@ ANSWER(Lukas): weil es so eingetragen ist :) sry, kann keine bessere Antwort geb
 
 SSH-Key erstellen:
 
-```bash
-% ssh-keygen
-```
+<pre><code class="plain hljs remark-code"><span class="hljs-string">% ssh-keygen</span>
+</code></pre>
 
 *Empfehlung*: Passwort für SSH-Key vergeben!
 
 Shell-Integration (Linux + Windows):
 
-```bash
-% cat ~/.bash_profile # bzw. ~/.zlogin
+<pre><code class="plain hljs remark-code"><span class="hljs-string">% cat ~/.bash_profile</span> <span class="hljs-comment"># bzw. ~/.zlogin</span>
 eval $(ssh-agent)
 ssh-add "$HOME/.ssh/id_rsa"
-```
+</code></pre>
 
 *Anmerkung*: typischerweise nur für Windows + Linux relevant,
 Mac hat Keychain-Integration
@@ -737,19 +728,17 @@ Zum Beispiel <a href="https://grml.org/zsh/">grml-zshrc</a>:
 
 .center[![grml-zshrc](includes/grml-zsh-prompt.png)</a>]
 
-```bash
-% test -r ~/.zshrc.local || \
-  curl -L https://git.grml.org/f/grml-etc-core/etc/zsh/zshrc &gt; ~/.zshrc.local
-```
+<pre><code class="plain hljs remark-code"><span class="hljs-string">% test -r ~/.zshrc.local || \</span>
+<span class="hljs-string">  curl -L https://git.grml.org/f/grml-etc-core/etc/zsh/zshrc &gt; ~/.zshrc.local</span>
+</code></pre>
 
 oder <a href="https://github.com/powerline/powerline">powerline</a>
 bzw. <a href="https://github.com/bhilburn/powerlevel9k/">powerlevel9k</a>:
 
-```bash
-% . /usr/share/powerline/bindings/zsh/powerline.zsh
+<pre><code class="plain hljs remark-code"><span class="hljs-string">% . /usr/share/powerline/bindings/zsh/powerline.zsh</span>
 
-$ . /usr/share/powerline/bindings/bash/powerline.sh
-```
+<span class="hljs-string">$ . /usr/share/powerline/bindings/bash/powerline.sh</span>
+</code></pre>
 
 ---
 
@@ -779,9 +768,8 @@ $ . /usr/share/powerline/bindings/bash/powerline.sh
 
 Und wo gibt's diese Folien? Natürlich via Git:
 
-```bash
-% git clone https://gitlab.grml.info/synpro/git-workshop-ieee-2018.git
-```
+<pre><code class="plain hljs remark-code"><span class="hljs-string">% git clone https://gitlab.grml.info/synpro/git-workshop-ieee-2018.git</span>
+</code></pre>
 
 .center[<a href="https://synpro.solutions/">![SynPro Solutions](includes/synpro.png)</a>]
     </textarea>
