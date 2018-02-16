@@ -161,8 +161,9 @@
   </head>
   <body>
     <textarea id="source">
-
 class: center, middle
+
+<!-- begin of slide content -->
 
 # Git Workshop für Einsteiger
 
@@ -447,6 +448,12 @@ Changes to be committed:
 # Datei dem Repository hinzufügen 2/3
 
 ```bash
+% git commit -v
+```
+
+... ein Editor mit folgendem Inhalt (oder ähnlich, je nach git-Version und Spracheinstellung) wird geöffnet:
+
+```bash
 Add initial version of README.md
 # Please enter the commit message for your changes. Lines starting
 # with '#' will be ignored, and an empty message aborts the commit.
@@ -459,13 +466,6 @@ Add initial version of README.md
 #       new file:   README.md
 #
 # ------------------------ >8 ------------------------
-# Do not touch the line above.
-# Everything below will be removed.
-diff --git a/README.md b/README.md
-new file mode 100644
-index 0000000..adcfe46
---- /dev/null
-+++ b/README.md
 [...]
 ```
 
@@ -475,11 +475,17 @@ index 0000000..adcfe46
 
 # Datei dem Repository hinzufügen 3/3
 
-<pre><code class="plain hljs remark-code"><span class="hljs-string">% git commit -v README.md</span>
+Statt Commit-Message via Editor einzugeben, kann man diese auch direkt über die Kommandozeile mitgeben:
+
+<pre><code class="plain hljs remark-code"><span class="hljs-string">% git commit -m "Add initial version of README.me"</span>
 [master (root-commit) 63456c5] Add initial README.md
  1 file changed, 7 insertions(+)
  create mode 100644 README.md
-<span class="hljs-string">% git status</span>
+</code></pre>
+
+Neuer Status:
+
+<pre><code class="plain hljs remark-code"><span class="hljs-string">% git status</span>
 On branch master
 nothing to commit, working tree clean
 </code></pre>
@@ -745,6 +751,7 @@ bzw. <a href="https://github.com/bhilburn/powerlevel9k/">powerlevel9k</a>:
 ## Git
 
 <ul class="nospace-rows">
+<li>"git $cmd --help" bzw. <a href="https://www.kernel.org/pub/software/scm/git/docs/">Manpages</a>
 <li>Freies deutsches (Online-)Buch zu Git: <a href="http://gitbu.ch/">http://gitbu.ch/</a>
 <li>Freies englisches (Online-)Buch zu Git: <a href="https://book.git-scm.com/book/">https://book.git-scm.com/book/</a> (deutsche, aber ältere Version: <a href="https://git-scm.com/book/de/">https://git-scm.com/book/de/</a>)
 <li>Flight rules for Git: <a href="https://github.com/k88hudson/git-flight-rules">https://github.com/k88hudson/git-flight-rules</a>
@@ -773,6 +780,14 @@ Und wo gibt's diese Folien? Natürlich via Git:
 <br>
 
 .center[<a href="https://synpro.solutions/?git-workshop-ieee-2018">![SynPro Solutions](includes/synpro.png)</a>]
+
+<div style="text-align:center">
+  <a href="https://twitter.com/synprosolutions">
+  @SynProSolutions <img src="includes/Twitter_Logo_Blue.png" alt="SynPro Solutions on Twitter" style="width: 75px; vertical-align: -25px;" />
+  </a>
+</div>
+
+<!-- end of slide content -->
     </textarea>
     <script src="includes/remark.js">
     </script>
